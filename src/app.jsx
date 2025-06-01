@@ -26,7 +26,7 @@ function App() {
 
   return (
     <form name="prayer-request-form" onSubmit={handleSubmit}>
-      <h2>Hallo! 💌</h2>
+      <h2>Hallo!</h2>
 
       <p><strong>What is on your heart?</strong></p>
       
@@ -34,14 +34,14 @@ function App() {
         <input
           type="checkbox"
           onInput={(e) => setShowPrayer(e.currentTarget.checked)}
-        /> I'd like to share a prayer request
+        /> I'd like to share a prayer request 🥺
       </label>
       <br />
       <label>
         <input
           type="checkbox"
           onInput={(e) => setShowAddress(e.currentTarget.checked)}
-        /> I'd like to receive a postcard or a note by hand
+        /> I'd love a note or postcard 💌
       </label>
       <br />
 
@@ -52,6 +52,7 @@ function App() {
         type="text"
         id="name"
         name="name"
+        placeholder="First and Last"
         required
       />
       <br />
@@ -78,7 +79,7 @@ function App() {
             id="address"
             name="address"
             rows="4"
-            placeholder="Street, City, Zip, Country (VERY IMPORTANT!)"
+            placeholder="Street, City, State, Zip (VERY IMPORTANT!), and Country"
           ></textarea>
           <br />
         </>
