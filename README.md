@@ -1,32 +1,75 @@
-# SolidStart
+# Forms Collection
 
-Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
+A collection of web forms built with Solid.js and Cloudflare Workers. Each form is designed to be simple, efficient, and easy to maintain.
 
-## Creating a project
+## Current Forms
+
+- **Prayer Request Form**
+  - Collects prayer requests and mailing addresses
+  - Optional sections for prayer requests and mailing addresses
+  - Simple and clean UI
+
+## Tech Stack
+
+- **Frontend**: Solid.js + Vite
+- **Backend**: Cloudflare Workers
+- **Database**: Cloudflare D1
+- **Deployment**: Cloudflare Workers
+
+## Development
 
 ```bash
-# create a new project in the current directory
-npm init solid@latest
+# Install dependencies
+npm install
 
-# create a new project in my-app
-npm init solid@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+# Start development server
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# Build for production
+npm run build
+
+# Deploy to Cloudflare
+npm run deploy
 ```
 
-## Building
+## Database Setup
 
-Solid apps are built with _presets_, which optimise your project for deployment to different environments.
+The application uses Cloudflare D1 for data storage. Each form has its own table:
 
-By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different preset, add it to the `devDependencies` in `package.json` and specify in your `app.config.js`.
+```sql
+-- Prayer Request Form
+CREATE TABLE connections (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  prayer TEXT,
+  address TEXT,
+  created_at TEXT NOT NULL
+);
+```
 
-## This project was created with the [Solid CLI](https://solid-cli.netlify.app)
+## Project Structure
+
+- `src/app.jsx` - Form components
+- `src/worker.js` - Cloudflare Worker for handling requests
+- `wrangler.toml` - Cloudflare Worker configuration
+
+## How It Works
+
+1. Each form is a standalone component
+2. Forms submit data to the Cloudflare Worker
+3. Worker stores submissions in D1 database
+4. Users receive confirmation messages
+
+## Deployment
+
+The application is deployed to Cloudflare Pages with:
+- Static frontend files served from `/dist`
+- Worker handling both static file serving and form submissions
+- D1 database for data persistence
+
+## Adding New Forms
+
+To add a new form:
+1. Create a new component in `src/app.jsx`
+2. Update the worker to handle the new form's submissions
+3. Deploy the changes
