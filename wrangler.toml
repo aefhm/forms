@@ -1,0 +1,14 @@
+name = "forms"
+main = "src/worker.js"
+compatibility_date = "2024-01-01"
+
+[assets]
+directory = "./dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "forms"
+database_id = "acefd73c-9414-4b7d-882b-7b05ad6a0bc0"
+
+[observability.logs]
+enabled = true

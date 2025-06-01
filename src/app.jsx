@@ -1,0 +1,91 @@
+import { createSignal } from "solid-js";
+import { render } from "solid-js/web";
+
+function App() {
+  const [showPrayer, setShowPrayer] = createSignal(false);
+  const [showAddress, setShowAddress] = createSignal(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+    
+    try {
+      const res = await fetch("/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      
+      const result = await res.json();
+      alert(result.message);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return (
+    <form name="prayer-request-form" onSubmit={handleSubmit}>
+      <h2>Hallo! 💌</h2>
+
+      <p><strong>What is on your heart?</strong></p>
+      
+      <label>
+        <input
+          type="checkbox"
+          onInput={(e) => setShowPrayer(e.currentTarget.checked)}
+        /> I'd like to share a prayer request
+      </label>
+      <br />
+      <label>
+        <input
+          type="checkbox"
+          onInput={(e) => setShowAddress(e.currentTarget.checked)}
+        /> I'd like to receive a postcard or a note by hand
+      </label>
+      <br />
+
+      <br />
+      <label for="name">Your Name</label>
+      <br />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+      />
+      <br />
+
+      {showPrayer() && (
+        <>
+          <label for="prayer">Prayer Request</label>
+          <br />
+          <textarea
+            id="prayer"
+            name="prayer"
+            rows="4"
+            placeholder="How can I request on your behalf?"
+          ></textarea>
+          <br />
+        </>
+      )}
+
+      {showAddress() && (
+        <>
+          <label for="address">Mailing Address</label>
+          <br />
+          <textarea
+            id="address"
+            name="address"
+            rows="3"
+            placeholder="Street, City, Zip, Country (VERY IMPORTANT!)"
+          ></textarea>
+          <br />
+        </>
+      )}
+
+      <button type="submit">Send</button>
+    </form>
+  );
+}
+
+render(() => <App />, document.getElementById("root"));

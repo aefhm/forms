@@ -1,0 +1,21 @@
+{
+	"name": "forms",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"deploy": "npm run build && wrangler deploy",
+		"setup-db": "node scripts/setup-db.js"
+	},
+	"dependencies": {
+		"solid-js": "^1.8.15"
+	},
+	"devDependencies": {
+		"vite": "^5.0.0",
+		"vite-plugin-solid": "^2.8.0",
+		"wrangler": "^3.0.0"
+	}
+}
