@@ -64,7 +64,7 @@ function App() {
             id="prayer"
             name="prayer"
             rows="4"
-            placeholder="How can I request on your behalf?"
+            placeholder="How can I petition on your behalf?"
           ></textarea>
           <br />
         </>
@@ -77,7 +77,7 @@ function App() {
           <textarea
             id="address"
             name="address"
-            rows="3"
+            rows="4"
             placeholder="Street, City, Zip, Country (VERY IMPORTANT!)"
           ></textarea>
           <br />
