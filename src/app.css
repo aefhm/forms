@@ -1,0 +1,38 @@
+/* Form Container */
+form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings */
+h2 {
+  text-align: center;
+  margin: 0 0 1rem;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+/* Form Elements */
+label {
+  margin: .5rem 0 0.25rem;
+}
+
+input[type="text"] {
+  margin-bottom: .5rem;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  form {
+    vertical-align: middle;
+    margin: 1rem;
+    padding: 1rem;
+  }
+} 

@@ -1,5 +1,6 @@
 import { createSignal } from "solid-js";
 import { render } from "solid-js/web";
+import "./app.css";
 
 function App() {
   const [showPrayer, setShowPrayer] = createSignal(false);
