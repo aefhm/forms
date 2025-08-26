@@ -4,10 +4,15 @@ A collection of web forms built with Solid.js and Cloudflare Workers. Each form 
 
 ## Current Forms
 
-- **Prayer Request Form**
+- **Prayer Request Form** (`/prayer`)
   - Collects prayer requests and mailing addresses
   - Optional sections for prayer requests and mailing addresses
   - Simple and clean UI
+
+- **Product Ideation Survey** (`/survey`)
+  - 9-question survey about workflow challenges and pain points
+  - Helps identify product opportunities and user needs
+  - Comprehensive form covering role, time management, and process inefficiencies
 
 ## Tech Stack
 
@@ -45,11 +50,30 @@ CREATE TABLE connections (
   address TEXT,
   created_at TEXT NOT NULL
 );
+
+-- Product Ideation Survey
+CREATE TABLE surveys (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  role TEXT,
+  time_spikes TEXT,
+  disruption TEXT,
+  recurring_tasks TEXT,
+  replanning TEXT,
+  coordination TEXT,
+  daily_annoyance TEXT,
+  missing_tool TEXT,
+  eliminate_drain TEXT,
+  created_at TEXT NOT NULL
+);
 ```
 
 ## Project Structure
 
-- `src/app.jsx` - Form components
+- `src/app.jsx` - Main routing setup
+- `src/components/Home.jsx` - Home page with form selector
+- `src/components/PrayerForm.jsx` - Prayer request form component
+- `src/components/SurveyForm.jsx` - Product ideation survey component
 - `src/worker.js` - Cloudflare Worker for handling requests
 - `wrangler.toml` - Cloudflare Worker configuration
 

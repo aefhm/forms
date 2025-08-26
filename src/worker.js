@@ -34,16 +34,49 @@ export default {
           });
         }
 
-        // Insert into D1 database
-        await env.DB.prepare(
-          `INSERT INTO connections (name, prayer, address, created_at) 
-           VALUES (?, ?, ?, ?)`
-        ).bind(
-          data.name,
-          data.prayer || null,
-          data.address || null,
-          new Date().toISOString()
-        ).run();
+        // Handle different form types
+        if (data.formType === 'prayer') {
+          // Insert into connections table for prayer requests
+          await env.DB.prepare(
+            `INSERT INTO connections (name, prayer, address, created_at) 
+             VALUES (?, ?, ?, ?)`
+          ).bind(
+            data.name,
+            data.prayer || null,
+            data.address || null,
+            new Date().toISOString()
+          ).run();
+        } else if (data.formType === 'survey') {
+          // Insert into surveys table for product ideation survey
+          await env.DB.prepare(
+            `INSERT INTO surveys (name, role, time_spikes, disruption, recurring_tasks, 
+             replanning, coordination, daily_annoyance, missing_tool, eliminate_drain, created_at) 
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+          ).bind(
+            data.name,
+            data.role || null,
+            data.time_spikes || null,
+            data.disruption || null,
+            data.recurring_tasks || null,
+            data.replanning || null,
+            data.coordination || null,
+            data.daily_annoyance || null,
+            data.missing_tool || null,
+            data.eliminate_drain || null,
+            new Date().toISOString()
+          ).run();
+        } else {
+          // Fallback for legacy submissions without formType
+          await env.DB.prepare(
+            `INSERT INTO connections (name, prayer, address, created_at) 
+             VALUES (?, ?, ?, ?)`
+          ).bind(
+            data.name,
+            data.prayer || null,
+            data.address || null,
+            new Date().toISOString()
+          ).run();
+        }
 
         return new Response(JSON.stringify({ message: 'Form submitted successfully' }), {
           headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
