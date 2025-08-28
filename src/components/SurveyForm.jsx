@@ -51,7 +51,6 @@ export default function SurveyForm() {
             name="role"
             rows="4"
             placeholder="e.g., Software Engineer - 60% coding (VS Code, Git), 20% meetings (Zoom), 15% personal projects, 5% hobbies"
-            required
           ></textarea>
           <br />
 
@@ -62,7 +61,6 @@ export default function SurveyForm() {
             name="time_spikes"
             rows="4"
             placeholder="Describe specific days and situations where you felt drained or inefficient"
-            required
           ></textarea>
           <br />
 
@@ -73,7 +71,6 @@ export default function SurveyForm() {
             name="disruption"
             rows="4"
             placeholder="Describe the situation, your response, and the impact"
-            required
           ></textarea>
           <br />
 
@@ -84,7 +81,6 @@ export default function SurveyForm() {
             name="recurring_tasks"
             rows="4"
             placeholder="e.g., Code reviews (3 hours), Weekly reports (2 hours), Email management (4 hours)"
-            required
           ></textarea>
           <br />
 
@@ -95,7 +91,6 @@ export default function SurveyForm() {
             name="replanning"
             rows="4"
             placeholder="Tell us about a time you had to pivot or change plans unexpectedly"
-            required
           ></textarea>
           <br />
 
@@ -106,7 +101,6 @@ export default function SurveyForm() {
             name="coordination"
             rows="4"
             placeholder="Describe a challenging handoff or coordination experience"
-            required
           ></textarea>
           <br />
 
@@ -117,7 +111,6 @@ export default function SurveyForm() {
             name="daily_annoyance"
             rows="4"
             placeholder="Something minor but persistent that bugs you regularly"
-            required
           ></textarea>
           <br />
 
@@ -128,7 +121,6 @@ export default function SurveyForm() {
             name="missing_tool"
             rows="4"
             placeholder="Describe a tool or solution you wish existed"
-            required
           ></textarea>
           <br />
 
@@ -139,7 +131,6 @@ export default function SurveyForm() {
             name="eliminate_drain"
             rows="4"
             placeholder="Your top priority pain point and how you'd measure success"
-            required
           ></textarea>
           <br />
 
