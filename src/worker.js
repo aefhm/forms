@@ -47,22 +47,19 @@ export default {
             new Date().toISOString()
           ).run();
         } else if (data.formType === 'survey') {
-          // Insert into surveys table for product ideation survey
+          // Insert into surveys table for "What Makes You Go Ugh" survey
           await env.DB.prepare(
-            `INSERT INTO surveys (name, role, time_spikes, disruption, recurring_tasks, 
-             replanning, coordination, daily_annoyance, missing_tool, eliminate_drain, created_at) 
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+            `INSERT INTO surveys (name, email, role, time_spikes, workflow_friction,
+             annoyances_priorities, dream_solution, created_at)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
           ).bind(
             data.name,
+            data.email || null,
             data.role || null,
             data.time_spikes || null,
-            data.disruption || null,
-            data.recurring_tasks || null,
-            data.replanning || null,
-            data.coordination || null,
-            data.daily_annoyance || null,
-            data.missing_tool || null,
-            data.eliminate_drain || null,
+            data.workflow_friction || null,
+            data.annoyances_priorities || null,
+            data.dream_solution || null,
             new Date().toISOString()
           ).run();
         } else {
@@ -106,4 +103,4 @@ export default {
     console.log('Method not allowed:', request.method);
     return new Response("Method not allowed", { status: 405 });
   }
-}; 
+};

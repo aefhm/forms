@@ -9,8 +9,8 @@ A collection of web forms built with Solid.js and Cloudflare Workers. Each form 
   - Optional sections for prayer requests and mailing addresses
   - Simple and clean UI
 
-- **Product Ideation Survey** (`/survey`)
-  - 9-question survey about workflow challenges and pain points
+- **What Makes You Go "Ugh" Survey** (`/survey`)
+  - 5-question survey about workflow challenges and pain points
   - Helps identify product opportunities and user needs
   - Comprehensive form covering role, time management, and process inefficiencies
 
@@ -51,19 +51,16 @@ CREATE TABLE connections (
   created_at TEXT NOT NULL
 );
 
--- Product Ideation Survey
+-- What Makes You Go "Ugh" Survey
 CREATE TABLE surveys (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
+  email TEXT,
   role TEXT,
   time_spikes TEXT,
-  disruption TEXT,
-  recurring_tasks TEXT,
-  replanning TEXT,
-  coordination TEXT,
-  daily_annoyance TEXT,
-  missing_tool TEXT,
-  eliminate_drain TEXT,
+  workflow_friction TEXT,
+  annoyances_priorities TEXT,
+  dream_solution TEXT,
   created_at TEXT NOT NULL
 );
 ```
@@ -73,7 +70,7 @@ CREATE TABLE surveys (
 - `src/app.jsx` - Main routing setup
 - `src/components/Home.jsx` - Home page with form selector
 - `src/components/PrayerForm.jsx` - Prayer request form component
-- `src/components/SurveyForm.jsx` - Product ideation survey component
+- `src/components/SurveyForm.jsx` - "What Makes You Go Ugh" survey component
 - `src/worker.js` - Cloudflare Worker for handling requests
 - `wrangler.toml` - Cloudflare Worker configuration
 

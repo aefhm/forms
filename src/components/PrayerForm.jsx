@@ -31,7 +31,7 @@ export default function PrayerForm() {
       <br /><br />
       
       {!isSubmitted() ? (
-        <form name="prayer-request-form" onSubmit={handleSubmit}>
+        <form name="prayer-request" onSubmit={handleSubmit}>
           <h2>Hallo!</h2>
 
           <p><strong>What is on your heart?</strong></p>
@@ -94,7 +94,7 @@ export default function PrayerForm() {
           <button type="submit">Send</button>
         </form>
       ) : (
-        <div>
+        <div class="form-container">
           <h2>Thank you! 🙏</h2>
           <p>Your submission has been received.</p>
           <button onClick={() => setIsSubmitted(false)}>Submit Another</button>

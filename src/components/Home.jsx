@@ -21,7 +21,7 @@ export default function Home() {
         "
       >
         <div style="font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem;">
-          🙏 Prayer Request Form
+          🙏 Prayer Request
         </div>
         <p style="margin: 0; font-size: 1rem; color: #666;">
           Share prayer requests and connect for encouragement
@@ -42,7 +42,7 @@ export default function Home() {
         "
       >
         <div style="font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem;">
-          🎯 Product Ideation Survey
+          🎯 What Makes You Go "Ugh" Survey
         </div>
         <p style="margin: 0; font-size: 1rem; color: #666;">
           Help us understand your workflow challenges and pain points
