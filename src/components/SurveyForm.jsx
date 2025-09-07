@@ -54,17 +54,17 @@ export default function SurveyForm() {
           />
           <br /><br />
 
-          <label for="role">1. What's your role, and how did you actually spend your time last week across work, personal life, and hobbies (rough percentages and key tools)?</label>
+          <label for="role">1. What's your role, and how did you spend your time last week across work, personal life, and hobbies (rough percentages and key tools)?</label>
           <br />
           <textarea
             id="role"
             name="role"
             rows="4"
-            placeholder="e.g., Software engineer, homemaker, consultant - 20% emails, 15% meetings, 5% hobbies"
+            placeholder="e.g., teacher, homemaker, consultant, software engineer - 20% emails, 15% meetings, 5% hobbies"
           ></textarea>
           <br />
 
-          <label for="time_spikes">2. Walk me through your last week day—when did your mental energy drop, what were you trying to do, and what got in the way?</label>
+          <label for="time_spikes">2. Through out your last week day—when did your mental energy drop, what were you trying to do, and what got in the way?</label>
           <br />
           <textarea
             id="time_spikes"
@@ -74,7 +74,7 @@ export default function SurveyForm() {
           ></textarea>
           <br />
 
-          <label for="workflow_friction">3. Tell me about recent situations that made you go "ugh"—disruptions, recurring time drains, difficult handoffs, or times you had to replan. What happened and what made it frustrating?</label>
+          <label for="workflow_friction">3. Which recent situations that made you go "ugh"—disruptions, recurring time sinks, difficult handoffs, or times you had to replan. What happened and what made it frustrating?</label>
           <br />
           <textarea
             id="workflow_friction"
@@ -94,7 +94,7 @@ export default function SurveyForm() {
           ></textarea>
           <br />
 
-          <label for="dream_solution">5. Have you ever thought "Why hasn't anyone built X yet?"—what would that solution look like and what problem would it solve for you?</label>
+          <label for="dream_solution">5. Have you ever thought "Why hasn't anyone built X yet?"—what would that solution look like, and what problem would it solve for you?</label>
           <br />
           <textarea
             id="dream_solution"

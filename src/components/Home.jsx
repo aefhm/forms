@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <form>
       <h2>Forms</h2>
-      <p style="text-align: center; margin-bottom: 2rem;">Choose a form to fill out:</p>
+      <p style="text-align: center; margin-bottom: 2rem;">Pick one:</p>
       
       <A 
         href="/prayer" 
@@ -24,7 +24,7 @@ export default function Home() {
           🙏 Prayer Request
         </div>
         <p style="margin: 0; font-size: 1rem; color: #666;">
-          Share prayer requests and connect for encouragement
+          Share a prayer request
         </p>
       </A>
       
@@ -45,7 +45,7 @@ export default function Home() {
           🎯 What Makes You Go "Ugh" Survey
         </div>
         <p style="margin: 0; font-size: 1rem; color: #666;">
-          Help us understand your workflow challenges and pain points
+          Tell us what frustrates you
         </p>
       </A>
     </form>
