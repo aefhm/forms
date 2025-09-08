@@ -1,5 +1,6 @@
 import { createSignal } from "solid-js";
 import { A } from "@solidjs/router";
+import Navbar from "./Navbar";
 
 export default function SurveyForm() {
   const [isSubmitted, setIsSubmitted] = createSignal(false);
@@ -25,8 +26,7 @@ export default function SurveyForm() {
 
   return (
     <>
-      <A href="/">← Back to Forms</A>
-      <br /><br />
+      <Navbar showBackLink={true} />
       
       {!isSubmitted() ? (
         <form name="product-survey-form" onSubmit={handleSubmit}>

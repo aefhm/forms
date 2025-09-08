@@ -1,5 +1,6 @@
 import { createSignal } from "solid-js";
 import { A } from "@solidjs/router";
+import Navbar from "./Navbar";
 
 export default function PrayerForm() {
   const [showPrayer, setShowPrayer] = createSignal(false);
@@ -27,8 +28,7 @@ export default function PrayerForm() {
 
   return (
     <>
-      <A href="/">← Back to Forms</A>
-      <br /><br />
+      <Navbar showBackLink={true} />
       
       {!isSubmitted() ? (
         <form name="prayer-request" onSubmit={handleSubmit}>

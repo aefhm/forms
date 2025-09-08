@@ -1,23 +1,16 @@
 import { A } from "@solidjs/router";
+import Navbar from "./Navbar";
 
 export default function Home() {
   return (
-    <form>
-      <h2>Xi's Forms</h2>
+    <>
+      <Navbar showBackLink={false} />
+      <form class="home-form">
+        <h2>Xi's Forms</h2>
       
       <A 
         href="/prayer" 
-        style="
-          display: block; 
-          padding: 1rem; 
-          margin-bottom: 1rem;
-          border: 1px solid #e2e2e2; 
-          border-radius: 8px; 
-          text-decoration: none; 
-          color: inherit;
-          background: #fafafa;
-          transition: background-color 0.2s;
-        "
+        class="form-link"
       >
         <div style="font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem;">
           🙏 Prayer Request
@@ -29,16 +22,7 @@ export default function Home() {
       
       <A 
         href="/survey" 
-        style="
-          display: block; 
-          padding: 1rem; 
-          border: 1px solid #e2e2e2; 
-          border-radius: 8px; 
-          text-decoration: none; 
-          color: inherit;
-          background: #fafafa;
-          transition: background-color 0.2s;
-        "
+        class="form-link"
       >
         <div style="font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem;">
           🎯 What Makes You Go "Ugh" Survey
@@ -48,5 +32,6 @@ export default function Home() {
         </p>
       </A>
     </form>
+    </>
   );
 }
