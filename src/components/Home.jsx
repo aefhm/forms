@@ -3,8 +3,7 @@ import { A } from "@solidjs/router";
 export default function Home() {
   return (
     <form>
-      <h2>Forms</h2>
-      <p style="text-align: center; margin-bottom: 2rem;">Pick one:</p>
+      <h2>Xi's Forms</h2>
       
       <A 
         href="/prayer" 
