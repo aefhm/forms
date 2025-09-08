@@ -44,7 +44,7 @@ export default function Home() {
           🎯 What Makes You Go "Ugh" Survey
         </div>
         <p style="margin: 0; font-size: 1rem; color: #666;">
-          Tell us what frustrates you
+          Let's talk about it
         </p>
       </A>
     </form>
