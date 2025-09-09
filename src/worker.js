@@ -46,6 +46,18 @@ export default {
             data.address || null,
             new Date().toISOString()
           ).run();
+        } else if (data.formType === 'postcard') {
+          // Insert into connections table for postcard requests
+          await env.DB.prepare(
+            `INSERT INTO connections (name, prayer, address, created_at, content)
+             VALUES (?, ?, ?, ?, ?)`
+          ).bind(
+            data.name,
+            null, // no prayer for postcard requests
+            data.address || null,
+            new Date().toISOString(),
+            data.content || null
+          ).run();
         } else if (data.formType === 'survey') {
           // Insert into surveys table for "What Makes You Go Ugh" survey
           await env.DB.prepare(

@@ -1,14 +1,13 @@
 import { createSignal } from "solid-js";
-import { A } from "@solidjs/router";
 import Navbar from "./Navbar";
 
-export default function PrayerForm() {
+export default function PostcardForm() {
   const [isSubmitted, setIsSubmitted] = createSignal(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget));
-    data.formType = "prayer";
+    data.formType = "postcard";
     
     try {
       const res = await fetch("/submit", {
@@ -29,10 +28,10 @@ export default function PrayerForm() {
       <Navbar showBackLink={true} />
       
       {!isSubmitted() ? (
-        <form name="prayer-request" onSubmit={handleSubmit}>
-          <h2>Prayer Request 🙏</h2>
+        <form name="postcard-request" onSubmit={handleSubmit}>
+          <h2>Postcard Request 💌</h2>
 
-          <p><strong>What is on your heart?</strong></p>
+          <p><strong>I'd love to send you a note or postcard!</strong></p>
 
           <label for="name">Your Name</label>
           <br />
@@ -45,23 +44,33 @@ export default function PrayerForm() {
           />
           <br />
 
-          <label for="prayer">Prayer Request</label>
+          <label for="content">What would you like me to write?</label>
           <br />
           <textarea
-            id="prayer"
-            name="prayer"
+            id="content"
+            name="content"
+            rows="3"
+            placeholder="Any specific message, encouragement, or just surprise me!"
+          ></textarea>
+          <br />
+
+          <label for="address">Mailing Address</label>
+          <br />
+          <textarea
+            id="address"
+            name="address"
             rows="4"
-            placeholder="How can I petition on your behalf?"
+            placeholder="Street, City, State, Zip (VERY IMPORTANT!), and Country"
             required
           ></textarea>
           <br />
 
-          <button type="submit">Send Prayer Request</button>
+          <button type="submit">Send Request</button>
         </form>
       ) : (
         <div class="form-container">
-          <h2>Thank you! 🙏</h2>
-          <p>Your prayer request has been received. I'll keep you in my prayers.</p>
+          <h2>Thank you! 💌</h2>
+          <p>Your postcard request has been received. I'll send something lovely your way!</p>
           <button onClick={() => setIsSubmitted(false)}>Submit Another</button>
         </div>
       )}

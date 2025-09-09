@@ -7,9 +7,9 @@ export default function Home() {
       <Navbar showBackLink={false} />
       <form class="home-form">
         <h2>Xi's Forms</h2>
-      
-      <A 
-        href="/prayer" 
+
+      <A
+        href="/prayer"
         class="form-link"
       >
         <div style="font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem;">
@@ -19,9 +19,21 @@ export default function Home() {
           Share a prayer request
         </p>
       </A>
-      
-      <A 
-        href="/survey" 
+
+      <A
+        href="/postcard"
+        class="form-link"
+      >
+        <div style="font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem;">
+          💌 Postcard Request
+        </div>
+        <p style="margin: 0; font-size: 1rem; color: #666;">
+          Request a note or postcard
+        </p>
+      </A>
+
+      <A
+        href="/survey"
         class="form-link"
       >
         <div style="font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem;">
