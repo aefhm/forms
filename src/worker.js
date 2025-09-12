@@ -74,6 +74,22 @@ export default {
             data.dream_solution || null,
             new Date().toISOString()
           ).run();
+        } else if (data.formType === 'intro') {
+          // Insert into intros table for referral/intro forms
+          await env.DB.prepare(
+            `INSERT INTO intros (person_name, person_contact, referrer_name, referrer_email,
+             connection_type, description, is_self_referral, created_at)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+          ).bind(
+            data.person_name,
+            data.person_contact || null,
+            data.name || null, // referrer name (null for self-referrals)
+            data.email || null, // referrer email (null for self-referrals)
+            data.connection_type,
+            data.description,
+            data.self_referral === 'on' ? 1 : 0, // checkbox value
+            new Date().toISOString()
+          ).run();
         } else {
           // Fallback for legacy submissions without formType
           await env.DB.prepare(

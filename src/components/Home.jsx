@@ -43,6 +43,18 @@ export default function Home() {
           Let's talk about it
         </p>
       </A>
+
+      <A
+        href="/intro"
+        class="form-link"
+      >
+        <div style="font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem;">
+          🤝 Who Should I Meet?
+        </div>
+        <p style="margin: 0; font-size: 1rem; color: #666;">
+          Know someone Xi should meet?
+        </p>
+      </A>
     </form>
     </>
   );
