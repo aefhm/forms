@@ -118,14 +118,19 @@ export default {
 
     // Serve static files from /dist
     if (request.method === "GET") {
-      try {
-        const filePath = pathname === "/" ? "/index.html" : pathname;
-        console.log('Serving static file:', filePath);
-        return await env.ASSETS.fetch(new Request("http://localhost" + filePath));
-      } catch (e) {
-        console.error('Error serving static file:', e);
-        return new Response("Not found", { status: 404 });
+      console.log('GET request for:', pathname);
+
+      // Always serve index.html for routes without file extensions (except root)
+      if (!pathname.includes('.') && pathname !== '/') {
+        console.log('SPA route - serving index.html for:', pathname);
+        const indexUrl = new URL(request.url);
+        indexUrl.pathname = '/index.html';
+        return await env.ASSETS.fetch(indexUrl.toString());
       }
+
+      // For root and files with extensions
+      console.log('Serving:', pathname === '/' ? 'index.html (root)' : pathname);
+      return await env.ASSETS.fetch(request);
     }
 
     console.log('Method not allowed:', request.method);

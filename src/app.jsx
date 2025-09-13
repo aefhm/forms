@@ -15,6 +15,7 @@ function App() {
       <Route path="/postcard" component={PostcardForm} />
       <Route path="/survey" component={SurveyForm} />
       <Route path="/intro" component={IntroForm} />
+      <Route path="/*all" component={Home} />
     </Router>
   );
 }
