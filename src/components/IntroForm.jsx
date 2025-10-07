@@ -31,7 +31,7 @@ export default function IntroForm() {
       
       {!isSubmitted() ? (
         <form name="intro-form" onSubmit={handleSubmit}>
-          <h2>Who Should I Meet? 🤝</h2>
+          <h2>Whom Should I Meet? 🤝</h2>
           <p>Know someone Xi should meet?</p>
 
           <label>

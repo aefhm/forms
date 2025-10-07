@@ -14,7 +14,7 @@ A collection of web forms built with Solid.js and Cloudflare Workers. Each form 
   - Helps identify product opportunities and user needs
   - Comprehensive form covering role, time management, and process inefficiencies
 
-- **Who Should I Meet?** (`/intro`)
+- **Whom Should I Meet?** (`/intro`)
   - Referral form for introductions (friends, work, dating)
   - Supports both regular referrals and self-introductions
   - Collects person details, connection type, and descriptive context
@@ -69,7 +69,7 @@ CREATE TABLE surveys (
   created_at TEXT NOT NULL
 );
 
--- Who Should I Meet? Form
+-- Whom Should I Meet? Form
 CREATE TABLE intros (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   person_name TEXT NOT NULL,
@@ -89,7 +89,7 @@ CREATE TABLE intros (
 - `src/components/Home.jsx` - Home page with form selector
 - `src/components/PrayerForm.jsx` - Prayer request form component
 - `src/components/SurveyForm.jsx` - "What Makes You Go Ugh" survey component
-- `src/components/IntroForm.jsx` - "Who Should I Meet?" referral form component
+- `src/components/IntroForm.jsx` - "Whom Should I Meet?" referral form component
 - `src/worker.js` - Cloudflare Worker for handling requests
 - `wrangler.toml` - Cloudflare Worker configuration
 
