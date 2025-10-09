@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <Navbar showBackLink={false} />
       <form class="home-form">
-        <h2>Xi's Forms</h2>
+        <h2>Xi Forms</h2>
 
       <A
         href="/prayer"
