@@ -4,23 +4,25 @@ import Navbar from "./Navbar";
 
 export default function SurveyForm() {
   const [isSubmitted, setIsSubmitted] = createSignal(false);
+  const [error, setError] = createSignal(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
     const data = Object.fromEntries(new FormData(e.currentTarget));
     data.formType = "survey";
-    
+
     try {
       const res = await fetch("/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      
-      const result = await res.json();
+
+      if (!res.ok) throw new Error("Submission failed");
       setIsSubmitted(true);
     } catch (err) {
-      console.error(err);
+      setError("Something went wrong. Please try again.");
     }
   };
 
@@ -104,6 +106,7 @@ export default function SurveyForm() {
           ></textarea>
           <br />
 
+          {error() && <p class="error-message">{error()}</p>}
           <button type="submit">Submit Survey</button>
         </form>
       ) : (

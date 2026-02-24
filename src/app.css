@@ -121,6 +121,18 @@ button:hover {
   color: #333;
 }
 
+/* Error message */
+.error-message {
+  color: #c44;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 640px) {
   form {
