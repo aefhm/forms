@@ -1,3 +1,31 @@
+import { EmailMessage } from "cloudflare:email";
+import { createMimeMessage } from "mimetext";
+
+const SENDER = "forms@xizhang.page";
+const RECIPIENT = "xi@zhang.party";
+
+function buildNotificationEmail(formType, data) {
+  const msg = createMimeMessage();
+  const prettyName = (key) => key.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+  msg.setSender({ name: "Forms", addr: SENDER });
+  msg.setRecipient(RECIPIENT);
+  const who = data.name || data.person_name || "Someone";
+  msg.setSubject(`${prettyName(formType)}: ${who} submitted something`);
+
+  const fields = Object.entries(data)
+    .filter(([key]) => key !== "formType")
+    .map(([key, value]) => `${prettyName(key)}: ${value || "(empty)"}`)
+    .join("\n");
+
+  msg.addMessage({
+    contentType: "text/plain",
+    data: `New ${formType} form submission:\n\n${fields}`,
+  });
+
+  return new EmailMessage(SENDER, RECIPIENT, msg.asRaw());
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -27,8 +55,8 @@ export default {
         const data = await request.json();
         console.log('Form data:', data);
         
-        if (!data.name) {
-          return new Response(JSON.stringify({ message: 'Name is required' }), { 
+        if (!data.name && !data.person_name) {
+          return new Response(JSON.stringify({ message: 'Name is required' }), {
             status: 400,
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
           });
@@ -102,6 +130,12 @@ export default {
             new Date().toISOString()
           ).run();
         }
+
+        // Send notification email in the background
+        ctx.waitUntil(
+          env.SEND_EMAIL.send(buildNotificationEmail(data.formType || "unknown", data))
+            .catch(err => console.error("Failed to send notification email:", err))
+        );
 
         return new Response(JSON.stringify({ message: 'Form submitted successfully' }), {
           headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }

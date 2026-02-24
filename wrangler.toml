@@ -1,6 +1,7 @@
 name = "forms"
 main = "src/worker.js"
-compatibility_date = "2024-01-01"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
 
 [assets]
 directory = "./dist"
@@ -10,6 +11,10 @@ binding = "ASSETS"
 binding = "DB"
 database_name = "forms"
 database_id = "acefd73c-9414-4b7d-882b-7b05ad6a0bc0"
+
+[[send_email]]
+name = "SEND_EMAIL"
+destination_address = "xi@zhang.party"
 
 [observability.logs]
 enabled = true

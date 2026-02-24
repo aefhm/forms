@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"@solidjs/router": "^0.15.3",
+		"mimetext": "^3.0.28",
 		"solid-js": "^1.8.15"
 	},
 	"devDependencies": {
